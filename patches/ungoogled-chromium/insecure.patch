@@ -1,0 +1,22 @@
+--- /Users/joubin/Documents/Git/insecure-chromium/build/src/content/renderer/render_view_impl-new.cc	2018-12-07 13:11:54.000000000 -0800
++++ /Users/joubin/Documents/Git/insecure-chromium/build/src/content/renderer/render_view_impl.cc	2018-12-07 13:12:03.000000000 -0800
+@@ -658,7 +658,8 @@
+   settings->SetDefaultTextEncodingName(
+       WebString::FromASCII(prefs.default_encoding));
+   settings->SetJavaScriptEnabled(prefs.javascript_enabled);
+-  settings->SetWebSecurityEnabled(prefs.web_security_enabled);
++  //Set to False by Joubin
++  settings->SetWebSecurityEnabled(false);
+   settings->SetLoadsImagesAutomatically(prefs.loads_images_automatically);
+   settings->SetImagesEnabled(prefs.images_enabled);
+   settings->SetPluginsEnabled(prefs.plugins_enabled);
+@@ -669,7 +670,8 @@
+   settings->SetJavaScriptCanAccessClipboard(
+       prefs.javascript_can_access_clipboard);
+   WebRuntimeFeatures::EnableXSLT(prefs.xslt_enabled);
+-  settings->SetXSSAuditorEnabled(prefs.xss_auditor_enabled);
++  //Set to False by Joubin
++  settings->SetXSSAuditorEnabled(false);
+   settings->SetDNSPrefetchingEnabled(prefs.dns_prefetching_enabled);
+   blink::WebNetworkStateNotifier::SetSaveDataEnabled(prefs.data_saver_enabled);
+   settings->SetLocalStorageEnabled(prefs.local_storage_enabled);
