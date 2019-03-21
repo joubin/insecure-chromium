@@ -1,5 +1,3 @@
-debian_stretch/arm/crashpad.patch
-
 debian_buster/disable/openh264.patch
 
 debian_stretch/system/vpx16.patch
@@ -8,7 +6,6 @@ debian_stretch/system/ffmpeg.patch
 debian_buster/system/ffmpeg34.patch
 debian_buster/system/openjpeg.patch
 debian_stretch/system/openjpeg21.patch
-debian_stretch/system/convertutf.patch
 
 debian_buster/debianization/sandbox.patch
 debian_buster/debianization/master-preferences.patch

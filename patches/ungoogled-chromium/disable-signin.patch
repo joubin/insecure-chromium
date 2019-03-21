@@ -2,7 +2,7 @@
 
 --- a/components/signin/core/browser/signin_manager_base.cc
 +++ b/components/signin/core/browser/signin_manager_base.cc
-@@ -155,7 +155,7 @@ void SigninManagerBase::Initialize(PrefS
+@@ -152,7 +152,7 @@ void SigninManagerBase::Initialize(PrefS
  bool SigninManagerBase::IsInitialized() const { return initialized_; }
  
  bool SigninManagerBase::IsSigninAllowed() const {
@@ -13,7 +13,7 @@
  AccountInfo SigninManagerBase::GetAuthenticatedAccountInfo() const {
 --- a/chrome/browser/ui/chrome_pages.cc
 +++ b/chrome/browser/ui/chrome_pages.cc
-@@ -71,12 +71,6 @@ void OpenBookmarkManagerForNode(Browser*
+@@ -72,12 +72,6 @@ void OpenBookmarkManagerForNode(Browser*
    ShowSingletonTabOverwritingNTP(browser, std::move(params));
  }
  

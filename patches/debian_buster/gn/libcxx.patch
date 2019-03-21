@@ -3,14 +3,11 @@ author: Michael Gilbert <mgilbert@debian.org>
 
 --- a/tools/gn/build/gen.py
 +++ b/tools/gn/build/gen.py
-@@ -311,10 +311,6 @@ def WriteGNNinja(path, platform, host, o
-     cflags_cc.extend(['-std=c++14', '-Wno-c++11-narrowing'])
+@@ -320,7 +320,6 @@ def WriteGNNinja(path, platform, host, o
  
      if platform.is_linux():
--      ldflags.extend([
+       ldflags.extend([
 -          '-static-libstdc++',
--          '-Wl,--as-needed',
--      ])
-       libs.extend([
-           # These are needed by libc++.
-           '-ldl',
+           '-Wl,--as-needed',
+       ])
+       # This is needed by libc++.

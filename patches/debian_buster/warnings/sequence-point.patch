@@ -3,7 +3,7 @@ author: Michael Gilbert <mgilbert@debian.org>
 
 --- a/headless/lib/browser/protocol/browser_handler.cc
 +++ b/headless/lib/browser/protocol/browser_handler.cc
-@@ -71,7 +71,7 @@ Response BrowserHandler::Close() {
+@@ -78,7 +78,7 @@ Response BrowserHandler::Close() {
  Response BrowserHandler::SetWindowBounds(
      int window_id,
      std::unique_ptr<Browser::Bounds> window_bounds) {
@@ -14,7 +14,7 @@ author: Michael Gilbert <mgilbert@debian.org>
      return Response::Error("Browser window not found");
 --- a/third_party/webrtc/modules/audio_processing/aec3/reverb_decay_estimator.cc
 +++ b/third_party/webrtc/modules/audio_processing/aec3/reverb_decay_estimator.cc
-@@ -285,7 +285,7 @@ void ReverbDecayEstimator::LateReverbLin
+@@ -287,7 +287,7 @@ void ReverbDecayEstimator::LateReverbLin
    // Arithmetic sum of $2 \sum_{i=0.5}^{(N-1)/2}i^2$ calculated directly.
    nn_ = SymmetricArithmetricSum(N);
    // The linear regression approach assumes symmetric index around 0.
@@ -23,3 +23,14 @@ author: Michael Gilbert <mgilbert@debian.org>
    N_ = N;
    n_ = 0;
  }
+--- a/chrome/browser/download/download_shelf_controller.cc
++++ b/chrome/browser/download/download_shelf_controller.cc
+@@ -65,7 +65,7 @@ void DownloadShelfController::OnItemUpda
+ 
+ void DownloadShelfController::OnNewOfflineItemReady(
+     DownloadUIModel::DownloadUIModelPtr model) {
+-  Browser* browser = browser = chrome::FindLastActiveWithProfile(profile_);
++  Browser* browser = chrome::FindLastActiveWithProfile(profile_);
+ 
+   if (browser && browser->window()) {
+     // Add the offline item to DownloadShelf in the browser window.

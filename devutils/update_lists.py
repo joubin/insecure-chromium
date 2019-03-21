@@ -27,8 +27,6 @@ sys.path.pop(0)
 # pathlib.Path.match() paths to include in binary pruning
 PRUNING_INCLUDE_PATTERNS = [
     'components/domain_reliability/baked_in_configs/*',
-    'third_party/analytics/*',
-    'ui/webui/resources/js/analytics.js',
 ]
 
 # pathlib.Path.match() paths to exclude from binary pruning
@@ -40,9 +38,6 @@ PRUNING_EXCLUDE_PATTERNS = [
     # TabRanker example preprocessor config
     # Details in chrome/browser/resource_coordinator/tab_ranker/README.md
     'chrome/browser/resource_coordinator/tab_ranker/example_preprocessor_config.pb',
-    # Exclusions for Visual Studio Project generation with GN (PR #445)
-    'tools/gn/visual_studio_writer.cc',
-    'tools/gyp/pylib/gyp/generator/msvs.py',
     # Exclusions for DOM distiller (contains model data only)
     'components/dom_distiller/core/data/distillable_page_model_new.bin',
     'components/dom_distiller/core/data/long_page_model.bin',
@@ -82,7 +77,12 @@ PRUNING_EXCLUDE_PATTERNS = [
 
 # NOTE: Domain substitution path prefix exclusion has precedence over inclusion patterns
 # Paths to exclude by prefixes of the POSIX representation for domain substitution
-DOMAIN_EXCLUDE_PREFIXES = ['components/test/', 'net/http/transport_security_state_static.json']
+DOMAIN_EXCLUDE_PREFIXES = [
+    'components/test/',
+    'net/http/transport_security_state_static.json',
+    # Exclusions for Visual Studio Project generation with GN (PR #445)
+    'tools/gn/tools/gn/visual_studio_writer.cc',
+]
 
 # pathlib.Path.match() patterns to include in domain substitution
 DOMAIN_INCLUDE_PATTERNS = [
@@ -298,7 +298,7 @@ def main(args_list=None):
         args = parser.parse_args(args_list)
         try:
             bundle = ConfigBundle(args.bundle)
-        except BaseException:
+        except: #pylint: disable=bare-except
             get_logger().exception('Error loading config bundle')
             raise BuildkitAbort()
         if args.tree.exists() and not dir_empty(args.tree):
