@@ -1,4 +1,4 @@
-# ungoogled-chromium
+# ungoogled-chromium - with security disabled
 
 *Bringing back the "Don't" in "Don't be evil"*
 
